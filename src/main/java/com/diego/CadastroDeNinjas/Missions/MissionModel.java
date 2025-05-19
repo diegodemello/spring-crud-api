@@ -2,11 +2,15 @@ package com.diego.CadastroDeNinjas.Missions;
 
 import com.diego.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tb_missions")
+@Data
+@AllArgsConstructor
 public class MissionModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
