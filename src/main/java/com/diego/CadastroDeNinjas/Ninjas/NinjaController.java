@@ -17,14 +17,14 @@ public class NinjaController {
 
     }
 
-    @GetMapping("/listall")
+    @GetMapping("/list")
     public List<NinjaModel> listAllNinjas(){
         return ninjaService.listAllNinjas();
     }
 
-    @GetMapping("/ninjaID")
-    public NinjaModel listNinjaId(){
-        return listNinjaId();
+    @GetMapping("/list/{id}")
+    public NinjaModel listNinjaId(@PathVariable Long id){
+        return ninjaService.listNinjaById(id);
     }
 
     @PutMapping("/changeID")
