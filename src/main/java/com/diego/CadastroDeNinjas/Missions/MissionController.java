@@ -7,6 +7,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/mission")
 public class MissionController {
+    private MissionService missionService;
+    public MissionController(MissionService missionService) {
+        this.missionService = missionService;
+    }
 
     @PostMapping("add")
     public void addMission(MissionModel missionModel){
@@ -15,7 +19,7 @@ public class MissionController {
 
     @GetMapping("/list")
     public List<MissionModel> listMissions(){
-        return listMissions();
+        return missionService.listMissions();
     }
 
     @GetMapping("/id")
