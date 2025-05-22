@@ -17,7 +17,8 @@ public class MissionModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String missionLevel;
+    @Enumerated(EnumType.STRING)
+    private MissionLevel missionLevel;
     @OneToMany(mappedBy = "mission")
     @JsonIgnore
     private List<NinjaModel> ninjas;
