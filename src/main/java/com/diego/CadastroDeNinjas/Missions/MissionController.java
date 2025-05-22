@@ -22,9 +22,9 @@ public class MissionController {
         return missionService.listMissions();
     }
 
-    @GetMapping("/id")
-    public MissionModel missionModel(Long id){
-        return missionModel(id);
+    @GetMapping("/list/{id}")
+    public MissionModel listMissionById(@PathVariable Long id){
+        return missionService.listMissionById(id);
     }
 
     @PutMapping("/changeID")

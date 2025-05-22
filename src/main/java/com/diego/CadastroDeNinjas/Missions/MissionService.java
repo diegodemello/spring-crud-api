@@ -3,6 +3,7 @@ package com.diego.CadastroDeNinjas.Missions;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MissionService {
@@ -13,5 +14,10 @@ public class MissionService {
 
     public List<MissionModel> listMissions(){
         return missionRepository.findAll();
+    }
+
+    public MissionModel listMissionById(Long id){
+        Optional<MissionModel> missionId = missionRepository.findById(id);
+        return missionId.orElse(null);
     }
 }
