@@ -1,5 +1,6 @@
 package com.diego.CadastroDeNinjas.Missions;
 
+import com.diego.CadastroDeNinjas.Ninjas.NinjaModel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,9 +28,9 @@ public class MissionController {
         return missionService.listMissionById(id);
     }
 
-    @PutMapping("/changeID")
-    public void changeMission(MissionModel missionModel){
-
+    @PutMapping("/change/{id}")
+    public MissionModel changeMission(@PathVariable Long id, @RequestBody MissionModel missionModel){
+        return missionService.changeMission(id, missionModel);
     }
 
     @DeleteMapping("/delete/{id}")

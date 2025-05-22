@@ -30,8 +30,8 @@ public class NinjaService {
     }
 
     public NinjaModel changeNinja(Long id, NinjaModel ninjaModel){
+        ninjaModel.setId(id);
         if(ninjaRepository.existsById(id)){
-             ninjaModel.setId(id);
              return ninjaRepository.save(ninjaModel);
         }else{
             return null;

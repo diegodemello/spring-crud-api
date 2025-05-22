@@ -29,4 +29,13 @@ public class MissionService {
         missionRepository.deleteById(id);
     }
 
+    public MissionModel changeMission(Long id, MissionModel missionModel){
+        missionModel.setId(id);
+        if(missionRepository.existsById(id)){
+            return missionRepository.save(missionModel);
+        }else{
+            return null;
+        }
+    }
+
 }
