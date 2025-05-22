@@ -1,6 +1,7 @@
 package com.diego.CadastroDeNinjas.Missions;
 
 import com.diego.CadastroDeNinjas.Ninjas.NinjaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,8 @@ public class MissionModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private MissionLevel missionLevel;
+    private String missionLevel;
     @OneToMany(mappedBy = "mission")
+    @JsonIgnore
     private List<NinjaModel> ninjas;
 }

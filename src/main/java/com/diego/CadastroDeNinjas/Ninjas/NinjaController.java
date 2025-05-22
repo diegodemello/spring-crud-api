@@ -7,15 +7,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/ninja")
 public class NinjaController {
+    private NinjaService ninjaService;
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
 
     @PostMapping("/add")
     public void createNinja(NinjaModel ninjaModel){
 
     }
 
-    @GetMapping("/list")
-    public List<NinjaModel> listNinjas(){
-        return listNinjas();
+    @GetMapping("/listall")
+    public List<NinjaModel> listAllNinjas(){
+        return ninjaService.listAllNinjas();
     }
 
     @GetMapping("/ninjaID")
