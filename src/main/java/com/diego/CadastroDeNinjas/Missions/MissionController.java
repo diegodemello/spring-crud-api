@@ -12,9 +12,9 @@ public class MissionController {
         this.missionService = missionService;
     }
 
-    @PostMapping("add")
-    public void addMission(MissionModel missionModel){
-
+    @PostMapping("/add")
+    public MissionModel addMission(@RequestBody MissionModel missionModel){
+        return missionService.addMission(missionModel);
     }
 
     @GetMapping("/list")
