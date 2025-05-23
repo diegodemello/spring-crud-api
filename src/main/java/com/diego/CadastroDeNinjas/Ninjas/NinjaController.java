@@ -13,8 +13,8 @@ public class NinjaController {
     }
 
     @PostMapping("/add")
-    public NinjaModel createNinja(@RequestBody NinjaModel ninjaModel){
-        return ninjaService.addNinja(ninjaModel);
+    public NinjaDTO createNinja(@RequestBody NinjaDTO ninjaDTO){
+        return ninjaService.addNinja(ninjaDTO);
     }
 
     @GetMapping("/list")
