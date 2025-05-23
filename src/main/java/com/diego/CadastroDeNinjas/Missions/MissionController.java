@@ -14,23 +14,23 @@ public class MissionController {
     }
 
     @PostMapping("/add")
-    public MissionModel addMission(@RequestBody MissionModel missionModel){
-        return missionService.addMission(missionModel);
+    public MissionDTO addMission(@RequestBody MissionDTO missionDTO){
+        return missionService.addMission(missionDTO);
     }
 
     @GetMapping("/list")
-    public List<MissionModel> listMissions(){
+    public List<MissionDTO> listMissions(){
         return missionService.listMissions();
     }
 
     @GetMapping("/list/{id}")
-    public MissionModel listMissionById(@PathVariable Long id){
+    public MissionDTO listMissionById(@PathVariable Long id){
         return missionService.listMissionById(id);
     }
 
     @PutMapping("/change/{id}")
-    public MissionModel changeMission(@PathVariable Long id, @RequestBody MissionModel missionModel){
-        return missionService.changeMission(id, missionModel);
+    public MissionDTO changeMission(@PathVariable Long id, @RequestBody MissionDTO missionDTO){
+        return missionService.changeMission(id, missionDTO);
     }
 
     @DeleteMapping("/delete/{id}")

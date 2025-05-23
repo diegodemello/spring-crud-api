@@ -4,38 +4,48 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class MissionService {
     private MissionRepository missionRepository;
-    public MissionService(MissionRepository missionRepository) {
+    private MissionMapper missionMapper;
+    public MissionService(MissionRepository missionRepository, MissionMapper missionMapper) {
         this.missionRepository = missionRepository;
+        this.missionMapper = missionMapper;
     }
 
-    public List<MissionModel> listMissions(){
-        return missionRepository.findAll();
+    public List<MissionDTO> listMissions(){
+        List<MissionModel> missions = missionRepository.findAll();
+        return missions.stream()
+                .map(missionMapper::map)
+                .collect(Collectors.toList());
     }
 
-    public MissionModel listMissionById(Long id){
+    public MissionDTO listMissionById(Long id){
         Optional<MissionModel> missionId = missionRepository.findById(id);
-        return missionId.orElse(null);
+        return missionId.map(missionMapper::map).orElse(null);
     }
 
-    public MissionModel addMission(MissionModel missionModel){
-        return missionRepository.save(missionModel);
+    public MissionDTO addMission(MissionDTO missionDTO){
+        MissionModel missionModel = missionMapper.map(missionDTO);
+        missionModel = missionRepository.save(missionModel);
+        return missionMapper.map(missionModel);
     }
 
     public void deleteMission(Long id){
         missionRepository.deleteById(id);
     }
 
-    public MissionModel changeMission(Long id, MissionModel missionModel){
-        missionModel.setId(id);
-        if(missionRepository.existsById(id)){
-            return missionRepository.save(missionModel);
-        }else{
-            return null;
+    public MissionDTO changeMission(Long id, MissionDTO missionDTO){
+        Optional<MissionModel> mission = missionRepository.findById(id);
+        if(mission.isPresent()){
+            MissionModel missionAt = missionMapper.map(missionDTO);
+            missionAt.setId(id);
+            MissionModel missionSave = missionRepository.save(missionAt);
+            return missionMapper.map(missionSave);
         }
+        return null;
     }
 
 }
