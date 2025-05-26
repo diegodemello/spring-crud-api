@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/mission")
 public class MissionController {
-    private MissionService missionService;
+    private final MissionService missionService;
     public MissionController(MissionService missionService) {
         this.missionService = missionService;
     }
