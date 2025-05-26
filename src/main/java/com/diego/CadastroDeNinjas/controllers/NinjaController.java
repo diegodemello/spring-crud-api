@@ -1,5 +1,7 @@
-package com.diego.CadastroDeNinjas.Ninjas;
+package com.diego.CadastroDeNinjas.controllers;
 
+import com.diego.CadastroDeNinjas.dto.NinjaDTO;
+import com.diego.CadastroDeNinjas.services.NinjaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -9,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/ninja")

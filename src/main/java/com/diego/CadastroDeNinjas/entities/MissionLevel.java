@@ -1,4 +1,4 @@
-package com.diego.CadastroDeNinjas.Missions;
+package com.diego.CadastroDeNinjas.entities;
 
 public enum MissionLevel {
     A("Impossível"),

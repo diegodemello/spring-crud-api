@@ -1,5 +1,6 @@
-package com.diego.CadastroDeNinjas.Missions;
+package com.diego.CadastroDeNinjas.dto;
 
+import com.diego.CadastroDeNinjas.entities.MissionModel;
 import org.springframework.stereotype.Component;
 
 @Component

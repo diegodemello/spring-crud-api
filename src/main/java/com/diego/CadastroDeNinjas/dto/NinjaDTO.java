@@ -1,6 +1,6 @@
-package com.diego.CadastroDeNinjas.Ninjas;
+package com.diego.CadastroDeNinjas.dto;
 
-import com.diego.CadastroDeNinjas.Missions.MissionModel;
+import com.diego.CadastroDeNinjas.entities.MissionModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

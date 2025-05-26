@@ -1,6 +1,7 @@
-package com.diego.CadastroDeNinjas.Missions;
+package com.diego.CadastroDeNinjas.controllers;
 
-import com.diego.CadastroDeNinjas.Ninjas.NinjaModel;
+import com.diego.CadastroDeNinjas.dto.MissionDTO;
+import com.diego.CadastroDeNinjas.services.MissionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

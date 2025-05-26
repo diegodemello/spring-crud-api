@@ -1,5 +1,6 @@
-package com.diego.CadastroDeNinjas.Ninjas;
+package com.diego.CadastroDeNinjas.dto;
 
+import com.diego.CadastroDeNinjas.entities.NinjaModel;
 import org.springframework.stereotype.Component;
 
 @Component

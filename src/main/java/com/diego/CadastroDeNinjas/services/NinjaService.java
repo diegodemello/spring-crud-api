@@ -1,5 +1,9 @@
-package com.diego.CadastroDeNinjas.Ninjas;
+package com.diego.CadastroDeNinjas.services;
 
+import com.diego.CadastroDeNinjas.dto.NinjaDTO;
+import com.diego.CadastroDeNinjas.dto.NinjaMapper;
+import com.diego.CadastroDeNinjas.entities.NinjaModel;
+import com.diego.CadastroDeNinjas.repositories.NinjaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

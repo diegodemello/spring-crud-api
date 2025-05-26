@@ -1,6 +1,5 @@
-package com.diego.CadastroDeNinjas.Missions;
+package com.diego.CadastroDeNinjas.entities;
 
-import com.diego.CadastroDeNinjas.Ninjas.NinjaModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
