@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/ninja")
@@ -38,7 +39,7 @@ public class NinjaController {
     @PutMapping("/change/{id}")
     public ResponseEntity<String> changeNinja(@PathVariable Long id, @RequestBody NinjaDTO ninjaDTO){
         if(ninjaService.listNinjaById(id) != null){
-            ninjaService.deleteNinja(id);
+            ninjaService.changeNinja(id, ninjaDTO);
             return ResponseEntity.ok().body("Ninja com o ID " + id + " alterado com sucesso!");
         }else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("O ID " + id + " não existe.");
