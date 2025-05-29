@@ -3,6 +3,7 @@ package com.diego.CadastroDeNinjas.services;
 import com.diego.CadastroDeNinjas.dto.NinjaDTO;
 import com.diego.CadastroDeNinjas.dto.NinjaMapper;
 import com.diego.CadastroDeNinjas.entities.NinjaModel;
+import com.diego.CadastroDeNinjas.exceptions.ResourceNotFoundException;
 import com.diego.CadastroDeNinjas.repositories.NinjaRepository;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,7 @@ public class NinjaService {
 
     public NinjaDTO listNinjaById(Long id){
         Optional<NinjaModel> ninjaId = ninjaRepository.findById(id);
-        return ninjaId.map(ninjaMapper::map).orElse(null);
+        return ninjaId.map(ninjaMapper::map).orElseThrow(() -> new ResourceNotFoundException("Ninja com ID " + id + " não encontrado."));
     }
 
     public NinjaDTO addNinja(NinjaDTO ninjaDTO){
@@ -39,6 +40,9 @@ public class NinjaService {
     }
 
     public void deleteNinja(Long id){
+        if(!ninjaRepository.existsById(id)){
+            throw new ResourceNotFoundException("Ninja com ID " + id + " não encontrado.");
+        }
         ninjaRepository.deleteById(id);
     }
 

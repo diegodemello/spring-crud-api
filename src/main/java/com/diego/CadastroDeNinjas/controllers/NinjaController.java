@@ -1,6 +1,7 @@
 package com.diego.CadastroDeNinjas.controllers;
 
 import com.diego.CadastroDeNinjas.dto.NinjaDTO;
+import com.diego.CadastroDeNinjas.exceptions.ResourceNotFoundException;
 import com.diego.CadastroDeNinjas.services.NinjaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -44,11 +45,11 @@ public class NinjaController {
             @ApiResponse(responseCode = "404", description = "Ninja não encontrado.")
     })
     public ResponseEntity<?> listNinjaId(@PathVariable Long id){
-        if(ninjaService.listNinjaById(id) != null){
-            NinjaDTO ninja = ninjaService.listNinjaById(id);
-            return ResponseEntity.ok().body(ninja);
-        }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("O ID " + id + " não existe.");
+        try {
+            NinjaDTO ninjaDTO = ninjaService.listNinjaById(id);
+            return ResponseEntity.ok(ninjaDTO);
+        }catch (ResourceNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
